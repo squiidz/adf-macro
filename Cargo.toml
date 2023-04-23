@@ -1,0 +1,16 @@
+[package]
+name = "adf_template"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+
+[[bin]]
+name = "adf-template"
+path = "main.rs"
+
+[dependencies]
+adf-template-lib = { path = "adf-template-lib" }
+serde = { version = "1.0.160", features = ["derive"] }
