@@ -1,7 +1,8 @@
 use adf_template_lib::adf_template;
 use serde::Serialize;
 
-#[derive(adf_template, Serialize)]
+#[derive(Serialize)]
+#[adf_template(path = "./template/comment.html")]
 struct Comment {
     title: String,
     body: String,
