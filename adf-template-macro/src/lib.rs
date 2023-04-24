@@ -54,18 +54,14 @@ pub fn adf_template(attr: TokenStream, item: TokenStream) -> TokenStream {
     let output = quote! {
         #input
 
-        impl #ident {
-            fn new(title: String, body: String) -> Self {
-                Self { title, body }
-            }
-
-            fn generate(&self) -> String {
+        impl ::adf_template_lib::GenerateADF for #ident {
+            fn to_adf(&self) -> Result<String, Box<dyn std::error::Error>> {
                 let template_str = include_str!(#path_str);
                 let mut template = ::adf_template_lib::__private::tinytemplate::TinyTemplate::new();
-                template.add_template(stringify!(#ident), &template_str).unwrap();
-                let rendered = template.render(stringify!(#ident), &self).unwrap();
+                template.add_template(stringify!(#ident), &template_str)?;
+                let rendered = template.render(stringify!(#ident), &self)?;
                 let adf_str = ::adf_template_lib::__private::convert_html_str_to_adf_str(rendered);
-                adf_str
+                Ok(adf_str)
             }
         }
     };
