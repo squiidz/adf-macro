@@ -6,7 +6,7 @@ description = "A macro for generating ADF from html templates"
 license = "MIT"
 
 [dependencies]
-adf-template-macro = "0.1.0"
+adf-template-macro = { path = "adf-template-macro" }
 htmltoadf = "0.1.7"
 serde = { version = "1.0.160", features = ["derive"] }
 tinytemplate = "1.2.1"

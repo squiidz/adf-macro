@@ -26,13 +26,13 @@ pub fn template(attr: TokenStream, item: TokenStream) -> TokenStream {
     let output = quote! {
         #input
 
-        impl super::GenerateADF for #ident {
+        impl ::adf_template::GenerateADF for #ident {
             fn to_adf(&self) -> Result<String, Box<dyn std::error::Error>> {
                 let template_str = include_str!(#path_str);
-                let mut template = super::__private::tinytemplate::TinyTemplate::new();
+                let mut template = ::adf_template::__private::tinytemplate::TinyTemplate::new();
                 template.add_template(stringify!(#ident), &template_str)?;
                 let rendered = template.render(stringify!(#ident), &self)?;
-                let adf_str = super::__private::convert_html_str_to_adf_str(rendered);
+                let adf_str = ::adf_template::__private::convert_html_str_to_adf_str(rendered);
                 Ok(adf_str)
             }
         }
