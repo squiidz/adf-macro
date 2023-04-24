@@ -1,0 +1,1 @@
+/home/squiidz/dev/rust/adf-template/adf-template-macro/target/package/adf-template-macro-0.1.0/target/debug/libadf_template_macro.so: /home/squiidz/dev/rust/adf-template/adf-template-macro/target/package/adf-template-macro-0.1.0/src/lib.rs
