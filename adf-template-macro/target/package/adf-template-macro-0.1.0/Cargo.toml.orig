@@ -2,6 +2,8 @@
 name = "adf-template-macro"
 version = "0.1.0"
 edition = "2021"
+description = "A macro for generating ADF from html templates"
+license = "MIT"
 
 [lib]
 proc-macro = true
